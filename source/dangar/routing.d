@@ -6,6 +6,7 @@ URLRouter dangarRouter()
 {
 	auto router = new URLRouter;
 	router.
+		get("/", &getIndex).
 		get("/version", &getVersion).
 		get("/json", &getJSON).
 		get("*", &hello);
@@ -16,6 +17,11 @@ URLRouter dangarRouter()
 void hello(HTTPServerRequest req, HTTPServerResponse res)
 {
 	res.writeBody("Hello, World! Fuck'n hot!");
+}
+
+void getIndex(HTTPServerRequest req, HTTPServerResponse res)
+{
+	res.render!("index.dt");
 }
 
 void getVersion(HTTPServerRequest req, HTTPServerResponse res)

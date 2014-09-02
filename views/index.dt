@@ -1,0 +1,9 @@
+doctype 5
+html
+	head
+		title dangar - Image Server
+	body
+		h1 Welcome
+
+		p This is dangar index page.
+
