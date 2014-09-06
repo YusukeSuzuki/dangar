@@ -5,8 +5,11 @@ import vibe.d;
 URLRouter dangarRouter()
 {
 	auto router = new URLRouter;
+	auto fsettings = new HTTPFileServerSettings;
+	fsettings.serverPathPrefix = "/static";
 	router.
 		get("/", &getIndex).
+		get("/static/*", serveStaticFiles("public/", fsettings)).
 		get("/version", &getVersion).
 		get("/json", &getJSON).
 		get("*", &hello);

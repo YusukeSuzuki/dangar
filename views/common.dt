@@ -1,0 +1,7 @@
+- void bootstrap()
+	link(rel= 'stylesheet', type= 'text/css', href= 'static/bootstrap/css/bootstrap.min.css')
+
+- void commonHeader()
+	- bootstrap();
+	link(rel= 'stylesheet', type= 'text/css', href= 'static/styles/common.css')
+
