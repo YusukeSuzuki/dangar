@@ -4,10 +4,13 @@
 	"copyright": "Copyright © 2014, yusuke",
 	"authors": ["yusuke"],
 	"dependencies": {
-		"vibe-d": ">=0.7.17"
+		"vibe-d": ">=0.7.17",
+		"s3" : "~master",
+		"mysql-d" : ">=0.3.1"
 	},
 	"versions": ["VibeDefaultMain"],
 
 	"targetPath" : "build",
 	"workingDirectory" : "./"
 }
+

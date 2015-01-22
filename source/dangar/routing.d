@@ -9,10 +9,14 @@ URLRouter dangarRouter()
 	fsettings.serverPathPrefix = "/static";
 	router.
 		get("/", &getIndex).
+		get("/api/s3_upload_test", &s3UploadTestHandler).
 		get("/static/*", serveStaticFiles("public/", fsettings)).
 		get("/version", &getVersion).
 		get("/json", &getJSON).
-		get("*", &hello);
+		get("*", &hello).
+		post("/api/s3_upload_test", &s3UploadTestHandler)
+		;
+
 
 	return router;
 }
