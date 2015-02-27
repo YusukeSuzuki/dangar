@@ -1,0 +1,13 @@
+include common
+
+doctype 5
+html
+	head
+		title form test
+		-commonHeader();
+	body
+		form(method='post',action='/api/form_test', enctype='multipart/form-data')
+			input(name='myname', type='text')
+			input(name='file', type='file')
+			input(type='submit')
+

@@ -1,5 +1,4 @@
-module danger.handlers;
+module dangar.handlers;
 
-public import danger.handlers.s3_upload_test;
-
+public import dangar.handlers.userActionHandlers;
 

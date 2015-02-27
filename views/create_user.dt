@@ -1,0 +1,13 @@
+extends layout
+
+block body
+	div.startar-template
+		h1 Create User
+
+		form(method='post', action='/actions/create_user', enctype='multipart/form-data')
+			span name
+			input(name='user_name', type='text')
+			span password
+			input(name='password', type='password')
+			input(type='submit')
+

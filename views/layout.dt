@@ -1,0 +1,34 @@
+include common
+
+doctype 5
+html
+	head
+		title dangar - Image Server
+		- commonHeader();
+	body
+		div.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+			div.container
+				div.navbar-header
+					button.navbar-toggle.collapsed(type='button', data-toglle='collapse', data-target='.navbar-collapse')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#') Dangar
+				div.collapse.navbar-collapse
+					ul.nav.navbar-nav
+						li
+							a(href='#') Home
+						li
+							a(href='#about') About
+						li
+							a(href='#contact') contact
+					- createUserNavigation();
+
+		div.container
+			block body
+
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src='/static/bootstrap/js/bootstrap.min.js')
+
+

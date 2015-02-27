@@ -2,7 +2,7 @@ extends layout
 
 block body
 	div.startar-template
-		h1 Welcome
+		h1 Error
+		p some error occured
 
-		p This is dangar index page.
 

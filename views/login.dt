@@ -1,0 +1,13 @@
+extends layout
+
+block body
+	div.startar-template
+		h1 Login
+
+		form(method='post', action='/actions/login', enctype='multipart/form-data')
+			span name
+			input(name='user_name', type='text')
+			span password
+			input(name='password', type='password')
+			input(type='submit')
+

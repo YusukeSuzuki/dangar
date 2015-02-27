@@ -5,3 +5,17 @@
 	- bootstrap();
 	link(rel= 'stylesheet', type= 'text/css', href= 'static/styles/common.css')
 
+- void createUserNavigation()
+	- if(user.loggedIn)
+		ul.nav.navbar-nav.navbar-right
+			li
+				a(href='#') #{user.name}
+			li
+				a(href='/logout') Logout
+	- else
+		ul.nav.navbar-nav.navbar-right
+			li
+				a(href='/create_user') Create new account
+			li
+				a(href='/login') Login
+

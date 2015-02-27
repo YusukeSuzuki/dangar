@@ -3,27 +3,34 @@ import dangar.models;
 
 import vibe.d;
 import vibe.core.args;
+import vibe.db.redis.sessionstore;
+
+T readOption(T)(string name, T defaultValue, string help)
+{
+	T val = defaultValue;
+	vibe.core.args.readOption!(T)(name, &val, help);
+	return val;
+}
 
 shared static this()
 {
-	string mode = "test";
-	ushort port = 8080;
+	string mode = readOption!(string)("mode", "test", "mode");
+	ushort port = readOption!(ushort)("port", 8080, "port");
+	string address = readOption!(string)("address", "127.0.0.1", "address");
 
-	{
-		readOption!(string)("mode", &mode, "mode");
-		readOption!(ushort)("port", &port, "port");
-		printCommandLineHelp();
-		logInfo("mode: %s", mode);
-		logInfo("port: %d", port);
-	}
+	printCommandLineHelp();
+
+	logInfo("mode: %s", mode);
+	logInfo("port: %d", port);
+	logInfo("address: %s", address);
 
 	auto settings = new HTTPServerSettings;
 	settings.port = port;
-	settings.bindAddresses = ["::1", "127.0.0.1"];
-
-	mongo.test();
+	settings.bindAddresses = [address];
+	settings.sessionStore = new RedisSessionStore("127.0.0.1", 0);
 
 	listenHTTP(settings, dangarRouter());
-	logInfo("Please open http://127.0.0.1:8080/ in your browser.");
+	logInfo("Please open http://%s:%s/ in your browser.",
+		address, port);
 }
 

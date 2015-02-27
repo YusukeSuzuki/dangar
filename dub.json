@@ -5,7 +5,7 @@
 	"authors": ["yusuke"],
 	"dependencies": {
 		"vibe-d": ">=0.7.17",
-		"s3" : "~master",
+		"ccv.d" : "~master",
 		"mysql-d" : ">=0.3.1"
 	},
 	"versions": ["VibeDefaultMain"],
